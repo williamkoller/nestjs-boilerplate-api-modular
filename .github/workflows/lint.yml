@@ -1,28 +1,24 @@
-name: 'Nestjs Boilerplate API Modular - Lint'
+name: Node.js - Lint
 
 on:
   push:
-    branches: [main]
+    branches: ['master']
   pull_request:
-    branches: [main]
+    branches: ['master']
 
 jobs:
-  run-linters:
-    name: Run Linters
+  build:
     runs-on: ubuntu-latest
+
     strategy:
-      fail-fast: true
       matrix:
-        node-version: [18x, 20x]
+        node-version: [18.x, 20.x]
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Setup Nodejs ${{ matrix.node-version }}
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+          cache: 'npm'
+      - run: npm ruin lint
