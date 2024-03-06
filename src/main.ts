@@ -19,7 +19,7 @@ async function bootstrap() {
   const config = app.get<ConfigService>(ConfigService);
   const port = config.get<number>('PORT');
   await app.listen(port, () =>
-    logger.log(`Server running at http://localhost:${port}`),
+    logger.log(`Server running at http://localhost:${port}/swagger`),
   );
 }
 bootstrap();
