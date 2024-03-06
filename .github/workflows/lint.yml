@@ -1,4 +1,4 @@
-name: Nestjs Boilerplate API Modular - Lint
+name: 'Nestjs Boilerplate API Modular - Lint'
 
 on:
   push:
@@ -17,9 +17,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      
+
       - name: Setup Nodejs ${{ matrix.node-version }}
         uses: actions/setup-node@v2
-      
+
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
