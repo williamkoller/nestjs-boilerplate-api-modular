@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    entrypoint: sh -c 'yarn install --frozen-lockfile && yarn swc'
+    networks:
+      - backend-network
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+networks:
+  backend-network:
