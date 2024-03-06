@@ -8,6 +8,7 @@ on:
 
 jobs:
   run-linters:
+    name: Run Linters
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
