@@ -16,7 +16,7 @@ export class HealthCheckController {
   @ApiOkResponse({
     description: 'Health Check',
     content: {
-      'application/json': {
+      applicationJson: {
         example: {
           message: 'Health check is OK!',
         },
